@@ -1,5 +1,6 @@
 package main
 
+// https://medium.com/@kingrayhan/500-data-structures-and-algorithms-practice-problems-and-their-solutions-b45a83d803f0
 // http://www.techiedelight.com/find-sub-array-with-0-sum/  referance
 import (
 	"fmt"
