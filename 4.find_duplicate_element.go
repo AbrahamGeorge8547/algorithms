@@ -9,29 +9,51 @@ import (
 	"log"
 	"os"
 	"time"
-
-	"github.com/abrahamgeorge8547/algorithms/find_duplicate_element/hash"
-	"github.com/abrahamgeorge8547/algorithms/find_duplicate_element/sum"
 )
 
 func main() {
-	x := []int{1,2,3,3,4}
+	x := []int{1, 2, 3, 3, 4}
 	switch os.Args[1] {
 
 	case "hash":
 		{
 			defer timeTrack(time.Now(), "hash method")
-			hash.Findduplicate(x)
+			hash(x)
 		}
 	case "sum":
 		{
 			defer timeTrack(time.Now(), "sorting binary method")
-			sum.Findduplicate(x)
+			sum(x)
 		}
 	default:
 		fmt.Println("cases")
 	}
 
+}
+
+func hash(arr []int) {
+	maps := make(map[int]bool)
+
+	for i := 0; i < len(arr); i++ {
+
+		if _, ok := maps[arr[i]]; ok {
+			fmt.Println(arr[i])
+		} else {
+			maps[arr[i]] = true
+		}
+	}
+}
+
+func sum(arr []int) {
+	n := len(arr)
+	sum := (n * (n - 1)) / 2
+	arrsum := 0
+
+	for i := 0; i < n; i++ {
+		arrsum += arr[i]
+
+	}
+	fmt.Println(arrsum - sum)
 }
 
 func timeTrack(start time.Time, name string) {
